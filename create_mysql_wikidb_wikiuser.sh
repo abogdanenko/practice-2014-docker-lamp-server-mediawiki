@@ -12,21 +12,23 @@ while [[ RET -ne 0 ]]; do
     RET=$?
 done
 
+echo "=> Creating MySQL database wikidb"
+mysql -uroot -e "CREATE DATABASE wikidb"
+echo "=> Done!"
+
 PASS=${MYSQL_WIKIUSER_PASS:-$(pwgen -s 12 1)}
 _word=$( [ ${MYSQL_WIKIUSER_PASS} ] && echo "preset" || echo "random" )
-echo "=> Creating MySQL admin user with ${_word} password"
+echo "=> Creating MySQL wikiuser user with ${_word} pass. and access to wikidb"
 
-mysql -uroot -e "CREATE DATABASE wikidb"
 mysql -uroot -e "CREATE USER 'wikiuser'@'%' IDENTIFIED BY '$PASS'"
 mysql -uroot -e "GRANT ALL PRIVILEGES ON wikidb.* TO 'wikiuser'@'%'"
-
 
 echo "=> Done!"
 
 echo "========================================================================"
-echo "You can now connect to this MySQL Server using:"
+echo "You can now connect to wikidb using:"
 echo ""
-echo "    mysql -uwikiuser -p$PASS -h<host> -P<port>"
+echo "    mysql -uwikiuser -p$PASS -h<host> -P<port> wikidb"
 echo ""
 echo "========================================================================"
 

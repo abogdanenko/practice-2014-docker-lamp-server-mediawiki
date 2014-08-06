@@ -4,6 +4,12 @@ MAINTAINER Alexey Bogdanenko <abogdanenko@dentavita.ru>
 # Configure mysql server to use utf8 charset
 ADD my1.cnf /etc/mysql/conf.d/my1.cnf
 
+# Remove pre-installed symlink
+RUN rm /var/www/html
+
+# Add apache default config
+ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
+
 # Setup wiki.dv.ru website
 
 # Install packages

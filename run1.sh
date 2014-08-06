@@ -13,7 +13,7 @@ else
     echo "=> Using an existing volume of MySQL"
 fi
 
-WWW_HOME="/var/www/html"
+WWW_HOME="/var/www"
 WIKI_FOLDER="wiki.dv.ru"
 WIKI_PATH="$WWW_HOME/$WIKI_FOLDER"
 

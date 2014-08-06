@@ -13,4 +13,18 @@ else
     echo "=> Using an existing volume of MySQL"
 fi
 
+WWW_HOME="/var/www/html"
+WIKI_FOLDER="wiki.dv.ru"
+WIKI_PATH="$WWW_HOME/$WIKI_FOLDER"
+
+if [[ ! -d $WIKI_PATH ]]; then
+    echo "=> Could not find $WIKI_FOLDER folder in $WWW_HOME"
+    echo "=> Installing MediaWiki ..."
+    mkdir -v $WIKI_PATH
+    tar -xf /downloads/mediawiki.tar.gz -C $WIKI_PATH --strip 1
+    echo "=> Done!"
+else
+    echo "=> Using an existing folder $WIKI_PATH"
+fi
+
 exec supervisord -n

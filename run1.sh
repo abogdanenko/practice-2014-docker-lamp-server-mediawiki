@@ -22,6 +22,7 @@ if [[ ! -d $WIKI_PATH ]]; then
     echo "=> Installing MediaWiki ..."
     mkdir -v $WIKI_PATH
     tar -xf /downloads/mediawiki.tar.gz -C $WIKI_PATH --strip 1
+    chown --recursive www-data:www-data $WIKI_PATH
     echo "=> Done!"
 else
     echo "=> Using an existing folder $WIKI_PATH"

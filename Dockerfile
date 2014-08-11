@@ -25,9 +25,10 @@ ADD check_install_wiki.sh /
 # Download mediawiki
 ADD http://releases.wikimedia.org/mediawiki/1.23/mediawiki-1.23.2.tar.gz /downloads/mediawiki.tar.gz
 
+# Add custom settings file
+ADD LocalSettings.php.append /
+
 ADD run1.sh /
 RUN chmod 755 /run1.sh
 
 CMD ["/run1.sh"]
-
-ADD LocalSettings.php.append /

@@ -26,7 +26,7 @@ RUN chmod 755 /create_mysql_wikidb_wikiuser.sh
 # Download mediawiki
 ADD http://releases.wikimedia.org/mediawiki/1.23/mediawiki-1.23.2.tar.gz /downloads/mediawiki.tar.gz
 
-ADD run1.sh /run1.sh
+ADD run1.sh /
 RUN chmod 755 /run1.sh
 
 CMD ["/run1.sh"]

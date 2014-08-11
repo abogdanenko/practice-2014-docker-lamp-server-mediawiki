@@ -1,0 +1,7 @@
+$wgLogo = "";
+$wgEnableEmail = false;
+$wgMainCacheType = CACHE_ACCEL;
+$wgEnableUploads = true;
+$wgLanguageCode = "ru";
+# disable anonymous edits
+$wgGroupPermissions['*']['edit'] = false;

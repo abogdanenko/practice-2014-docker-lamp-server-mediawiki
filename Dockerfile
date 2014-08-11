@@ -30,3 +30,5 @@ ADD run1.sh /run1.sh
 RUN chmod 755 /run1.sh
 
 CMD ["/run1.sh"]
+
+ADD LocalSettings.php.append /

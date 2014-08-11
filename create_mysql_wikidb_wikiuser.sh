@@ -48,4 +48,8 @@ php /var/www/wiki.dv.ru/maintenance/install.php \
     DentaVita admin
 echo "=> Done!"
 
+cat /LocalSettings.php.append >> /var/www/wiki.dv.ru/LocalSettings.php
+
+php /var/www/wiki.dv.ru/maintenance/rebuildmessages.php --rebuild
+
 mysqladmin -uroot shutdown

@@ -45,7 +45,6 @@ php /var/www/wiki.dv.ru/maintenance/install.php \
     --lang ru \
     --scriptpath "" \
     --server "http://wiki.dv.ru" \
-    --confpath /var/www/wiki.dv.ru/ \
     DentaVita admin
 echo "=> Done!"
 

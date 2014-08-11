@@ -24,11 +24,12 @@ function check_install_wiki()
 
     if [[ ! -d $WIKI_PATH ]]; then
         echo "=> Could not find $WIKI_FOLDER folder in $WWW_HOME"
-        echo "=> Installing MediaWiki ..."
+        echo "=> New MediaWiki install"
         mkdir -v $WIKI_PATH
+        echo "=> Extracting files to directory $WIKI_PATH"
         tar -xf /downloads/mediawiki.tar.gz -C $WIKI_PATH --strip 1
         chown --recursive www-data:www-data $WIKI_PATH
-        echo "=> Extracted files to directory $WIKI_PATH"
+        echo "=> Done!"
         /create_mysql_wikidb_wikiuser.sh
     else
         echo "=> Using an existing install of MediaWiki in folder $WIKI_PATH"

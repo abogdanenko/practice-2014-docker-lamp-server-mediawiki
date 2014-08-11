@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# defines function check_install_wiki()
+
+
 function start_mysql()
 {
     /usr/bin/mysqld_safe > /dev/null 2>&1 &

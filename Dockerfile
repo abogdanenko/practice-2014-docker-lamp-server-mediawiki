@@ -19,9 +19,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install php5-gd php5-intl
 ADD wiki.dv.ru.conf /etc/apache2/sites-available/
 RUN a2ensite wiki.dv.ru.conf
 
-# Add script to create database wikidb, mysql user wikiuser
-ADD create_mysql_wikidb_wikiuser.sh /
-RUN chmod 755 /create_mysql_wikidb_wikiuser.sh
+# Add script which installs wiki
+ADD check_install_wiki.sh /
 
 # Download mediawiki
 ADD http://releases.wikimedia.org/mediawiki/1.23/mediawiki-1.23.2.tar.gz /downloads/mediawiki.tar.gz

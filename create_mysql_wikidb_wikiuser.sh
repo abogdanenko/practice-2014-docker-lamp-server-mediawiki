@@ -32,4 +32,21 @@ echo "    mysql -uwikiuser -p$PASS -h<host> -P<port> wikidb"
 echo ""
 echo "========================================================================"
 
+echo "Installing MediaWiki in unattended mode..."
+php /var/www/wiki.dv.ru/maintenance/install.php \
+    --dbname wikidb \
+    --dbserver localhost \
+    --dbtype mysql \
+    --dbuser wikiuser \
+    --dbpass $PASS \
+    --installdbpass $PASS \
+    --installdbuser wikiuser \
+    --pass 123 \
+    --lang ru \
+    --scriptpath "" \
+    --server "http://wiki.dv.ru" \
+    --confpath /var/www/wiki.dv.ru/ \
+    DentaVita admin
+echo "=> Done!"
+
 mysqladmin -uroot shutdown

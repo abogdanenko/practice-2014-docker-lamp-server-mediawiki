@@ -1,3 +1,4 @@
+$wgSitename = "Документация IT-отдела";
 $wgLogo = "";
 $wgEnableEmail = false;
 $wgMainCacheType = CACHE_ACCEL;

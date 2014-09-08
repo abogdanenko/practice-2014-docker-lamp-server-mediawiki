@@ -15,6 +15,10 @@ ADD 000-default.conf /etc/apache2/sites-available/
 # Install packages
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install php5-gd php5-intl
 
+# Fix PHP Warning "Failed to write session data"
+RUN chgrp www-data /var/lib/php5
+RUN chmod 775 /var/lib/php5
+
 # Add Apache virtual host file
 ADD wiki.dv.ru.conf /etc/apache2/sites-available/
 RUN a2ensite wiki.dv.ru.conf
